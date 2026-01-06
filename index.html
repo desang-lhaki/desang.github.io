@@ -358,21 +358,23 @@
 
   <div class="copyToast" id="toast">Copied!</div>
 
-  <script>
+ <script>
     document.getElementById("2026").textContent = new Date().getFullYear();
     const email = "desang65@gmail.com";
     const btn = document.getElementById("copyEmailBtn");
     const toast = document.getElementById("toast");
-
+  
     btn.addEventListener("click", async () => {
       try {
         await navigator.clipboard.writeText(email);
         toast.classList.add("show");
         setTimeout(() => toast.classList.remove("show"), 1200);
       } catch (e) {
-        alert("Couldn’t copy. Email is: " + email);
+        // Fallback if clipboard is blocked
+        alert("Couldn’t copy automatically. Email is: " + email);
       }
     });
   </script>
+
 </body>
 </html>
