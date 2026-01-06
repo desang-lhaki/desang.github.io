@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Desang Lhaki Tenzin — About</title>
+  <meta name="description" content="Personal website for Desang Lhaki Tenzin." />
+  <style>
+    :root{
+      --bg:#0b0f17;
+      --card:#111827;
+      --muted:#9ca3af;
+      --text:#e5e7eb;
+      --accent:#60a5fa;
+      --ring: rgba(96,165,250,.35);
+      --border: rgba(255,255,255,.08);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 20% 10%, rgba(96,165,250,.18), transparent 60%),
+        radial-gradient(900px 500px at 80% 30%, rgba(34,197,94,.12), transparent 60%),
+        linear-gradient(180deg, #070a12, var(--bg));
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:980px; margin:0 auto; padding:28px 18px 60px}
+    header{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:10px 4px 26px;
+    }
+    .brand{display:flex; align-items:center; gap:12px}
+    .avatar{
+      width:44px; height:44px; border-radius:14px;
+      background: linear-gradient(135deg, rgba(96,165,250,.9), rgba(34,197,94,.65));
+      box-shadow: 0 8px 24px rgba(0,0,0,.35);
+      border:1px solid var(--border);
+    }
+    nav{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    .pill{
+      padding:10px 12px; border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      transition: transform .12s ease, border-color .12s ease;
+    }
+    .pill:hover{transform: translateY(-1px); border-color: rgba(96,165,250,.55)}
+    .hero{
+      display:grid; gap:18px;
+      grid-template-columns: 1.3fr .7fr;
+      align-items:stretch;
+    }
+    @media (max-width: 860px){
+      .hero{grid-template-columns:1fr}
+      nav{justify-content:flex-start}
+    }
+    .card{
+      background: rgba(17,24,39,.75);
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+    .heroMain{padding:24px}
+    h1{margin:0 0 10px; font-size: clamp(30px, 4vw, 44px); letter-spacing:-.02em}
+    .subtitle{color:var(--muted); margin:0 0 18px; font-size: 15.5px; line-height:1.6}
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px}
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:11px 14px; border-radius: 14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      cursor:pointer;
+      transition: transform .12s ease, border-color .12s ease, box-shadow .12s ease;
+      user-select:none;
+    }
+    .btn:hover{transform: translateY(-1px); border-color: rgba(96,165,250,.55); box-shadow: 0 0 0 6px var(--ring)}
+    .btnPrimary{
+      border-color: rgba(96,165,250,.35);
+      background: linear-gradient(135deg, rgba(96,165,250,.20), rgba(96,165,250,.05));
+    }
+    .mini{
+      padding:18px;
+      display:flex; flex-direction:column; gap:14px;
+      justify-content:space-between;
+    }
+    .stat{
+      padding:14px; border-radius:16px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+    }
+    .label{color:var(--muted); font-size:12px; letter-spacing:.12em; text-transform:uppercase}
+    .value{font-size:18px; margin-top:6px}
+    section{margin-top:18px}
+    .grid{
+      display:grid; gap:14px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 860px){ .grid{grid-template-columns: 1fr} }
+    .tile{padding:18px}
+    h2{margin:0 0 10px; font-size:18px}
+    p{margin:0; color:var(--muted); line-height:1.6}
+    ul{margin:10px 0 0; padding-left:18px; color:var(--muted); line-height:1.7}
+    .footer{
+      margin-top:28px; padding:18px;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; flex-wrap:wrap;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+    .small{font-size:13px}
+    .copyToast{
+      position: fixed; left:50%; bottom:22px; transform:translateX(-50%);
+      padding:10px 12px; border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(17,24,39,.9);
+      box-shadow: var(--shadow);
+      opacity:0; pointer-events:none;
+      transition: opacity .2s ease, transform .2s ease;
+    }
+    .copyToast.show{opacity:1; transform:translateX(-50%) translateY(-4px)}
+    .tagRow{display:flex; gap:8px; flex-wrap:wrap; margin-top:12px}
+    .tag{
+      font-size:12.5px; color:rgba(229,231,235,.9);
+      padding:7px 10px; border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="avatar" aria-hidden="true"></div>
+        <div>
+          <div style="font-weight:700">Desang Lhaki Tenzin</div>
+          <div class="small" style="color:var(--muted)">Student • Chicago, IL</div>
+        </div>
+      </div>
+
+      <nav>
+        <a class="pill" href="#about">About</a>
+        <a class="pill" href="#career highlights">Career Highlights</a>
+        <a class="pill" href="#papers">Papers</a>
+        <a class="pill" href="#certifications">Certifications</a>
+        <a class="pill" href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="hero">
+        <div class="card heroMain" id="about">
+          <h1>Hi, I’m <span style="color:var(--accent)">Desang Lhaki Tenzin</span>.</h1>
+          <p class="subtitle">
+            I am from Bhutan and I am currently a sophomore at Lake Forest College double majoring in Economics and Computer Science. 
+            I went to high-school at United World College in Mostar, Bosnia and Herzegovina where I undertook the International Baccalaureate Diploma.
+            I’m interested in research, making a difference and learning about different cultures. 
+
+          <div class="tagRow">
+            <span class="tag">📚 Economics & Computer Science</span>
+            <span class="tag">🏛 Lake Forest College</span>
+            <span class="tag">🌍 UWC Alum</span>
+          </div>
+
+          <div class="ctaRow">
+            <a class="btn btnPrimary" href="#papers">See my papers →</a>
+            <button class="btn" id="copyEmailBtn" type="button">Copy my email</button>
+            <a class="btn" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
+        </div>
+
+        <aside class="card mini">
+          <div class="stat">
+            <div class="label">Looking for</div>
+            <div class="value">Opportunities: <b>2026 & 2027 Internships</b></div>
+          </div>
+          <div class="stat">
+            <div class="label">Fun fact</div>
+            <div class="value">I can <b>speak 7 different languages</b> 😄</div>
+          </div>
+        </aside>
+      </div>
+      
+      <section id="career highlights">
+        <div class="card tile" style="padding:22px">
+          <h2>Career Highlights</h2>
+          <ul>
+            <li>Served as Resident Assistant, Student Ambassador, Student Activities Finance Board and Student Government Senator at Lake Forest College.</li>
+            <li>Awarded $10,000 Projects for Peace grant to lead a community development initiative improving hygiene, safety & education for disadvantaged young monks in Paro, Bhutan.</li>
+            <li>Secured $3,000 Global Youth Action Fund grant to build sustainable toilets supporting the health of women & children; completed intensive 8-week venture training.</li>
+            <li>Competed in and developed a sustainability-themed app for DataVerse: The Ultimate Hackathon, integrating ML and campus datasets to change waste-segregation habits.</li>
+            <li>Selected for the Goldman Sachs Possibilities Summit, gaining exposure to corporate banking, recruitment pathways, and high-level industry insights.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="papers">
+        <div class="grid">
+          <div class="card tile">
+            <h2>Paper 1 (2022)</h2>
+            <p><a class="btn" href="/Users/desang/Desktop/Website/Papers/Pioneer Research Paper Desang Tenzin.pdf" target="_blank" rel="noreferrer">
+              View / Download PDF →
+            </a></p>
+            <p><b>Title: Impact of Policies in the Kingdom of Bhutan</b></p>
+            <p>Research Question: How did the implementation of new tourism strategies in Bhutan impact the societies of Paro and Thimphu in terms of environmental, economical and cultural aspects?</p>
+            <ul>
+              <li>Bhutan is often seen as a peaceful, culturally rich, and environmentally conscious paradise, but growing tourism has also caused serious challenges for locals, including congestion, job insecurity, 
+                and environmental damage. Recognizing that tourism affects the entire nation, Bhutan used the pandemic as an opportunity to rethink its tourism model and introduced higher Sustainable Development Fees (SDF) 
+                in 2022 to limit exploitation and promote sustainability. While this policy aims to protect Bhutan’s culture and environment, it has raised concerns among local tourism workers about their livelihoods. 
+                This research examines the impacts of these new strategies in major tourist areas like Paro and Thimphu and considers whether Bhutan’s approach could be applied to other tourism-dependent countries.</li>
+            </ul>
+          </div>
+
+          <div class="card tile">
+            <h2>Paper 2 (2024)</h2>
+            <p><a class="btn" href="/Users/desang/Desktop/Website/Papers/Extended Essay Desang Tenzin.pdf" target="_blank" rel="noreferrer">
+              View / Download PDF →
+            </a></p>
+            <p><b>Title: Sustainable Development In Castilla-La Mancha, Spain</b></p>
+            <p>Research Question: To what extent has the European Green Deal impacted sustainable development in Castilla-La Mancha, Spain for the years 2020-2023 through the production of Wind energy?</p>
+            <ul>
+              <li>An economy dependent on endless growth is unsustainable within a finite system, especially as the overuse of non-renewable resources like fossil fuels drives climate change and environmental damage. 
+                Since free markets fail to regulate these resources effectively, government intervention is necessary to address market failures and promote sustainable development. The European Green Deal represents 
+                a coordinated response to climate change by encouraging investment in renewable energy. This research focuses on how such policies, particularly wind energy initiatives under the European Green Deal, 
+                affect economic growth and sustainable development in Castilla-La Mancha, Spain.</li>
+            </ul>
+          </div>
+
+          <div class="card tile">
+            <h2>Paper 3 (2025)</h2>
+            <p><a class="btn" href="/Users/desang/Desktop/Website/Papers/PPCY.pdf" target="_blank" rel="noreferrer">
+              View / Download PDF →
+            </a></p>
+            <p><b>Title: Opioids Crisis in U.S.</b></p>
+            <p>Research Question: Tomb of the masses: Policies to Remedy America’s Opioids Crisis</p>
+            <P>Contributers: Desang Lhaki Tenzin, Aika Minja, Leon Levin</P>
+            <p>Supervisor: Tilahun Emiru</p>
+            <ul>
+              <li> With over 600,000 lives lost to opioid related deaths since the onset of the crisis and economic 
+              drainage nearing trillions of dollars in 2020, government intervention is crucial. Without meaningful
+              intervention, the crisis continues to strain healthcare systems, drive up rates of homelessness, disrupt
+              communities, and place unsustainable pressure on law enforcement and judicial resources. The future
+              cost is not only measured in dollars but also in lives lost, families broken, and generations trapped in cycles of
+              addiction and poverty. Hence, this paper addresses the ongoing opioids epidemic in the United
+              States and offers four policy prescriptions</li>
+            </ul>
+          </div>
+
+        </div>
+      </section>
+
+      <section id="certifications">
+        <div class="card tile" style="padding:22px">
+          <h2>Certifications</h2>
+          <ul>
+            <li>UIUC: Investment Banking: Financial Analysis and Valuation</li>
+            <li>UIUC: AI in Wealth Management</li>
+            <li>Google: Networks and Network Security</li>
+            <li>Google: Stay Ahead of the AI Curve</li>
+            <li>Google: Use AI responsibly</li>
+            <li>Discover the Art of Prompting</li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="grid">
+        <div class="card tile">
+          <h2>Skills</h2>
+          <p><b>Technical Skills</b></p>
+          <ul>
+            <li>Python</li>
+            <li>Java</li>
+            <li>JavaScript</li>
+            <li>HTML</li>
+            <li>CSS</li>
+          </ul>
+        </div>
+
+        <div class="card tile">
+          <h2>Tools</h2>
+          <ul>
+            <li>GitHub</li>
+            <li>Rork</li>
+            <li>Microsoft Excel</li>
+            <li>Microsoft Powerpoint</li>
+            <li>Canva</li>
+            <li>CapCut</li>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>Microsoft Word</li>
+          </ul>
+        </div>
+  
+        <div class="card tile">
+          <h2>Hobbies</h2>
+          <ul>
+            <li>Guitar</li>
+            <li>Singing</li>
+            <li>Dancing</li>
+            <li>Content Creation</li>
+          </ul>
+        </div>
+      </div>
+
+      <section id="contact">
+        <div class="card tile" style="padding:22px">
+          <h2>Contact</h2>
+          <p>
+            Email: <a href="mailto:desang65@gmail.com" style="color:var(--accent); font-weight:600">desang65@gmail.com</a><br/>
+            LinkedIn: <a href="https://www.linkedin.com/" style="color:var(--accent); font-weight:600">linkedin.com/in/desang-lhaki</a><br>
+            Location: <span style="color:var(--text)">Chicago, IL</span>
+          </p>
+        </div>
+      </section>
+
+      <div class="footer">
+        <div class="small">© <span id="year"></span> Desang Lhaki Tenzin</div>
+        <div class="small">Built with HTML + CSS</div>
+      </div>
+    </main>
+  </div>
+
+  <div class="copyToast" id="toast">Copied!</div>
+
+  <script>
+    // Update year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Copy email button
+    const email = "desang65@gmail.com";
+    const btn = document.getElementById("copyEmailBtn");
+    const toast = document.getElementById("toast");
+
+    btn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(email);
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 1200);
+      } catch (e) {
+        alert("Couldn’t copy. Email is: " + email);
+      }
+    });
+  </script>
+</body>
+</html>
