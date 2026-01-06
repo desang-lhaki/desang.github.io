@@ -33,9 +33,19 @@
 
     a{color:inherit; text-decoration:none}
     .wrap{max-width:980px; margin:0 auto; padding:28px 18px 60px}
+    main{
+      margin-top: 12px;
+    }
     header{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:14px; padding-top:1.25rem; padding-bottom:1.25rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    
+      background: rgba(11,15,23,0.95); /* or your solid color */
+      backdrop-filter: blur(8px);
+      border-radius: 16px;
+      padding-left: 16px;
+      padding-right: 16px;
     }
     .brand{display:flex; align-items:center; gap:12px}
     .avatar{
