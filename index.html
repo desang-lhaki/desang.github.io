@@ -358,22 +358,59 @@
 
   <div class="copyToast" id="toast">Copied!</div>
 
- <script>
-    document.getElementById("2026").textContent = new Date().getFullYear();
+  <script>
+    const yearEl = document.getElementById("2026");
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+  
+    function showToast(msg = "Copied!") {
+      const toast = document.getElementById("toast");
+      if (!toast) return;
+      toast.textContent = msg;
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 1200);
+    }
+  
+    async function copyText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch (e) {
+        }
+      }
+  
+      try {
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        ta.setAttribute("readonly", "");
+        ta.style.position = "fixed";
+        ta.style.top = "-9999px";
+        ta.style.left = "-9999px";
+        document.body.appendChild(ta);
+        ta.select();
+        ta.setSelectionRange(0, ta.value.length); 
+        const ok = document.execCommand("copy");
+        document.body.removeChild(ta);
+        return ok;
+      } catch (e) {
+        return false;
+      }
+    }
+  
     const email = "desang65@gmail.com";
     const btn = document.getElementById("copyEmailBtn");
-    const toast = document.getElementById("toast");
   
-    btn.addEventListener("click", async () => {
-      try {
-        await navigator.clipboard.writeText(email);
-        toast.classList.add("show");
-        setTimeout(() => toast.classList.remove("show"), 1200);
-      } catch (e) {
-        // Fallback if clipboard is blocked
-        alert("Couldn’t copy automatically. Email is: " + email);
-      }
-    });
+    if (btn) {
+      btn.addEventListener("click", async () => {
+        const ok = await copyText(email);
+        if (ok) {
+          showToast("Copied email!");
+        } else {
+          // Last resort: show prompt so user can copy manually
+          window.prompt("Copy this email:", email);
+        }
+      });
+    }
   </script>
 
 </body>
