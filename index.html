@@ -84,6 +84,13 @@
       user-select:none;
     }
     .btn:hover{transform: translateY(-1px); border-color: rgba(96,165,250,.55); box-shadow: 0 0 0 6px var(--ring)}
+    .btn-link{
+      font-family: inherit;
+      font-size: inherit;
+      color: inherit;
+      background: rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.10);
+    }
     .btnPrimary{
       border-color: rgba(96,165,250,.35);
       background: linear-gradient(135deg, rgba(96,165,250,.20), rgba(96,165,250,.05));
@@ -175,7 +182,7 @@
 
           <div class="ctaRow">
             <a class="btn btnPrimary" href="#papers">See my papers →</a>
-            <button class="btn" id="copyEmailBtn" type="button">Copy my email</button>
+            <button class="btn btn-link" id="copyEmailBtn" type="button">Copy my email</button>
             <a class="btn" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
             <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
           </div>
